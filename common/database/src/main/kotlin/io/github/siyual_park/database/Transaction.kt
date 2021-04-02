@@ -4,4 +4,5 @@ interface Transaction {
     fun begin()
     fun commit()
     fun rollback()
+    fun close()
 }
