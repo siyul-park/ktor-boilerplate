@@ -3,7 +3,6 @@ rootProject.name = "ktor-boilerplate"
 fun includeModules(pathname: String) {
     File(pathname).listFiles()?.forEach {
         if (it.isDirectory && File(it, "build.gradle.kts").exists()) {
-            println("$pathname:${it.name}")
             include("$pathname:${it.name}")
         }
     }
