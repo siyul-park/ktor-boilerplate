@@ -21,6 +21,11 @@ plugins {
 group = "io.github.siyual_park"
 version = "0.0.1-SNAPSHOT"
 
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
 subprojects {
     apply(plugin = "kotlin")
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
@@ -33,13 +38,4 @@ subprojects {
     dependencies {
         implementation(kotlin("stdlib"))
     }
-}
-
-repositories {
-    mavenLocal()
-    jcenter()
-}
-
-dependencies {
-    implementation(kotlin("stdlib"))
 }
