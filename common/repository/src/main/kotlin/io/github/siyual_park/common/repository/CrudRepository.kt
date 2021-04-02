@@ -1,6 +1,6 @@
 package io.github.siyual_park.common.repository
 
-interface CrudRepository<T, ID> {
+interface CrudRepository<T : Entity<ID>, ID> {
     fun create(entity: T): T
 
     fun createAll(entity: Iterable<T>): List<T>
