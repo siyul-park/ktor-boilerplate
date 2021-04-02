@@ -10,8 +10,6 @@ application {
 }
 
 repositories {
-    mavenCentral()
-    jcenter()
     maven { url = uri("https://kotlin.bintray.com/ktor") }
 }
 
