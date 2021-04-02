@@ -7,3 +7,5 @@ pluginManagement {
         id("org.jlleitschuh.gradle.ktlint") version klint_version
     }
 }
+
+include("application:network")
