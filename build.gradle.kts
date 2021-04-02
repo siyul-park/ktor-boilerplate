@@ -1,5 +1,6 @@
 val kotlin_version: String by project
 val ktor_version: String by project
+val logback_version: String by project
 
 buildscript {
     val klint_version: String by project
@@ -37,6 +38,10 @@ dependencies {
 
     implementation("io.ktor:ktor-server-core:$ktor_version")
     implementation("io.ktor:ktor-server-netty:$ktor_version")
+
+    implementation("ch.qos.logback:logback-classic:$ktor_version")
+
+    implementation("ch.qos.logback:logback-classic:$logback_version")
 }
 
 kotlin.sourceSets["main"].kotlin.srcDirs("src/main")
