@@ -1,4 +1,5 @@
 val kotlin_version: String by project
+val ktor_version: String by project
 
 buildscript {
     val klint_version: String by project
@@ -29,6 +30,9 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
+
+    implementation("io.ktor:ktor-server-core:$ktor_version")
+    implementation("io.ktor:ktor-server-netty:$ktor_version")
 }
 
 kotlin.sourceSets["main"].kotlin.srcDirs("src/main")
