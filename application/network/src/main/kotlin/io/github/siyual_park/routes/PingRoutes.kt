@@ -1,4 +1,4 @@
-package io.github.siyual_park.routes.utility
+package io.github.siyual_park.routes
 
 import io.ktor.application.call
 import io.ktor.response.respondText

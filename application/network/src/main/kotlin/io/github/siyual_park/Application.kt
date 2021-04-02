@@ -1,7 +1,7 @@
 package io.github.siyual_park
 
 import io.github.siyual_park.routes.getRootRoutes
-import io.github.siyual_park.routes.utility.pingRoutes
+import io.github.siyual_park.routes.pingRoutes
 import io.ktor.application.Application
 import io.ktor.application.install
 import io.ktor.routing.Routing
