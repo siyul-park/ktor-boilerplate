@@ -5,7 +5,11 @@ interface AsyncCrudRepository<T : Entity<ID>, ID> {
 
     suspend fun createAll(entity: Iterable<T>): List<T>
 
+    suspend fun updateById(id: ID, patch: AsyncPatch<T>): T
+
     suspend fun updateById(id: ID, patch: Patch<T>): T
+
+    suspend fun update(entity: T, patch: AsyncPatch<T>): T
 
     suspend fun update(entity: T, patch: Patch<T>): T
 
