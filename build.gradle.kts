@@ -22,6 +22,10 @@ plugins {
 group = "io.github.siyual_park"
 version = "0.0.1-SNAPSHOT"
 
+application {
+    mainClass.set("io.ktor.server.netty.EngineMain")
+}
+
 repositories {
     mavenLocal()
     jcenter()
@@ -29,7 +33,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
+    implementation(kotlin("stdlib"))
 
     implementation("io.ktor:ktor-server-core:$ktor_version")
     implementation("io.ktor:ktor-server-netty:$ktor_version")
