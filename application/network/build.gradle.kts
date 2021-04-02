@@ -3,8 +3,6 @@ val logback_version: String by project
 
 plugins {
     application
-    kotlin("jvm")
-    id("org.jlleitschuh.gradle.ktlint")
 }
 
 application {
