@@ -8,7 +8,7 @@ import io.ktor.server.testing.withTestApplication
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class RootRouteTests {
+class RootRoutesTests {
     @Test
     fun testGetRoot() {
         withTestApplication({ module(testing = true) }) {
