@@ -1,8 +1,14 @@
+val requery_version: String by project
+
 plugins {
     application
 }
 
 dependencies {
+    implementation("io.requery:requery:$requery_version")
+    implementation("io.requery:requery-kotlin:$requery_version")
+    annotationProcessor("io.requery:requery-processor:$requery_version")
+
     implementation(project(":common:database"))
 }
 
