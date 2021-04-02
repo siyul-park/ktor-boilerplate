@@ -1,4 +1,4 @@
-rootProject.name = "kotlin-boilerplate"
+rootProject.name = "ktor-boilerplate"
 
 pluginManagement {
     val klint_version: String by settings
