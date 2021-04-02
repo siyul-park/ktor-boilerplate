@@ -1,4 +1,4 @@
-package io.github.siyual_park.repository
+package io.github.siyual_park.database
 
 interface AsyncCrudRepository<T : Entity<ID>, ID> {
     suspend fun create(entity: T): T
