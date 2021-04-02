@@ -1,4 +1,4 @@
-package io.github.siyual_park.common.repository
+package io.github.siyual_park.repository
 
 interface CrudRepository<T : Entity<ID>, ID> {
     fun create(entity: T): T
