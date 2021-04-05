@@ -3,30 +3,37 @@ package io.github.siyual_park.requery
 import io.github.siyual_park.database.CrudRepository
 import io.github.siyual_park.database.Entity
 import io.github.siyual_park.database.Patch
+import io.requery.BlockingEntityStore
+import kotlin.reflect.KClass
 
-class CrudRepository<T : Entity<ID>, ID> : CrudRepository<T, ID> {
-    override fun create(entity: T): T {
-        TODO("Not yet implemented")
+class CrudRepository<T : Entity<ID>, ID>(
+    private val entityStore: BlockingEntityStore<T>,
+    private val clazz: KClass<T>
+) : CrudRepository<T, ID> {
+    override fun create(entity: T): T = entityStore.runInTransaction {
+        entityStore.insert(entity)
     }
 
-    override fun createAll(entity: Iterable<T>): List<T> {
-        TODO("Not yet implemented")
+    override fun createAll(entities: Iterable<T>): List<T> = entityStore.runInTransaction {
+        entityStore.insert(entities).toList()
     }
 
-    override fun updateById(id: ID, patch: Patch<T>): T {
-        TODO("Not yet implemented")
+    override fun updateById(id: ID, patch: Patch<T>): T = entityStore.runInTransaction {
+        entityStore.findByKey(clazz.java, id)?.let {
+            update(it, patch)
+        }
     }
 
-    override fun update(entity: T, patch: Patch<T>): T {
-        TODO("Not yet implemented")
+    override fun update(entity: T, patch: Patch<T>): T = entityStore.runInTransaction {
+        entityStore.update(patch.apply(entity))
     }
 
-    override fun upsert(entity: T): T {
-        TODO("Not yet implemented")
+    override fun upsert(entity: T): T = entityStore.runInTransaction {
+        entityStore.upsert(entity)
     }
 
-    override fun upsertAll(entity: Iterable<T>): List<T> {
-        TODO("Not yet implemented")
+    override fun upsertAll(entities: Iterable<T>): List<T> = entityStore.runInTransaction {
+        entityStore.upsert(entities).toList()
     }
 
     override fun findByIdOrFail(id: ID): T {

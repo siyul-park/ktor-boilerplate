@@ -3,7 +3,7 @@ package io.github.siyual_park.database
 interface CrudRepository<T : Entity<ID>, ID> {
     fun create(entity: T): T
 
-    fun createAll(entity: Iterable<T>): List<T>
+    fun createAll(entities: Iterable<T>): List<T>
 
     fun updateById(id: ID, patch: Patch<T>): T
 
@@ -11,7 +11,7 @@ interface CrudRepository<T : Entity<ID>, ID> {
 
     fun upsert(entity: T): T
 
-    fun upsertAll(entity: Iterable<T>): List<T>
+    fun upsertAll(entities: Iterable<T>): List<T>
 
     fun findByIdOrFail(id: ID): T
 

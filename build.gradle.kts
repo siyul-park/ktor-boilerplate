@@ -14,6 +14,7 @@ buildscript {
 
 plugins {
     kotlin("jvm")
+    id("org.jlleitschuh.gradle.ktlint")
 }
 
 group = "io.github.siyual_park"
